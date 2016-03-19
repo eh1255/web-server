@@ -8,16 +8,9 @@ var app = express();
 // req includes all infro from user
 // res is used to send data back
 
-var middleware = {
-	requireAuthentication: function(req, res, next) {
-		console.log('private route hit!');
-		next();
-	},
-	logger: function(req, resp, next) {
-		console.log('Request: ' + new Date().toString() + ' ' + req.method + ' ' + req.originalUrl);
-		next();
-	}
-}
+// Import the middleware we wrote in a different file
+var middleware = require('./middleware.js');
+
 
 // Middleware called on every request
 app.use(middleware.logger);
