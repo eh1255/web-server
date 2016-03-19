@@ -26,7 +26,7 @@ app.use(express.static(__dirname+ '/public'));
 // 3000 usually isn't used so it won't cause any conflicts with system trash
 // The second argument, a function, gets called when the server starts up
 // Using all upper case indicates that the variable is meant to be a constant, like let in swift.
-var PORT = 3000;
+var PORT = process.env.PORT || 3000; // Get the correct port from Heroku or use 3000 when on local host.
 
 app.listen(PORT, function() {
 	console.log('Server started up on port ' + PORT);
